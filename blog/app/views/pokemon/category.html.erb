@@ -1,0 +1,144 @@
+<%= stylesheet_link_tag 'styles' %>
+<!DOCTYPE html>
+<html>
+  <head>
+  <style>
+  .dropdown {
+    max-height: 476px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+  }
+
+  .type-name, .pokemon-name {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+  }
+
+  .type-name:hover, .pokemon-name:hover {
+    background-color: #f0f0f0;
+  }
+
+  .dropdown::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .dropdown::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px;
+  }
+
+  .dropdown::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+  .selected {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .pokemon-name {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    text-transform: capitalize;
+  }
+
+</style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="category">
+      <div class="div">
+        <div class="div-2">
+          <div class="div-2">
+            <div class="rectangle"></div>
+            <div class="rectangle-2"></div>
+            <div class="ellipse"></div>
+          </div>
+          <div class="text-wrapper">Tu equipo: <%= @current_team_name %></div>
+        </div>
+        <div class="elegir-categora"><p class="elegircategor-a">Escoge un Tipo:</p></div>
+        <div class="rectangle-3" id="pokemon-types-box">
+        <div class="dropdown">
+          <% @pokemon_types.each do |type| %>
+            <div class="type-name" onclick="selectType('<%= type %>')"><%= type.capitalize %></div>
+          <% end %>
+          </div>
+        </div>
+        <div class="rectangle-4">
+        <div class="dropdown" id="pokemon-box"></div>
+        </div>
+        <div class="rectangle-5">
+          <div class="dropdown" id="team-pokemon-box">
+            <% @team_pokemons.each do |pokemon| %>
+              <div class="pokemon-name"><%= "#{pokemon[:name]} @ #{pokemon[:held_item]}" %></div>
+            <% end %>
+          </div>
+        </div>
+        <div class="guardar-categoria" id="guardar-categoria" onClick="redirectToSaveTeam()"><div class="text-wrapper-2">Nombre</div></div>
+        <div class="div-wrapper" id="div-wrapper" onClick="redirectToBuildTeam()">
+        <div class="text-wrapper-2">Siguiente</div></div>
+        <div class="text-wrapper-3">Type:</div>
+        <div class="text-wrapper-4">Pokemon:</div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  let selectedType = null;
+  let selectedPokemon = null;
+
+  function selectType(typeName) {
+    selectedType = typeName;
+
+    const prevSelected = document.querySelector('.type-name.selected');
+    if (prevSelected) {
+      prevSelected.classList.remove('selected');
+    }
+
+    event.currentTarget.classList.add('selected');
+    
+    fetch(`/choosePokemon?type=${typeName}`)
+      .then(response => response.json())
+      .then(pokemons => {
+        let pokemonBox = document.getElementById('pokemon-box');
+        pokemonBox.innerHTML = '';
+        pokemons.forEach(pokemon => {
+          let div = document.createElement('div');
+          div.innerText = pokemon;
+          div.className = 'pokemon-name';
+          div.onclick = function () {
+            selectPokemon(pokemon, this);
+          };
+          pokemonBox.appendChild(div);
+        });
+      })
+      .catch(error => console.error('Error:', error));
+  }
+
+  function selectPokemon(pokemonName, element) {
+    selectedPokemon = pokemonName;
+    sessionStorage.setItem('selectedPokemon', pokemonName);
+    const prevSelected = document.querySelector('.pokemon-name.selected');
+    if (prevSelected) {
+      prevSelected.classList.remove('selected');
+    }
+    element.classList.add('selected');
+  }
+
+  function redirectToBuildTeam() {
+    if (!selectedPokemon) {
+      alert("¡Selecciona un pokemon primero!");
+      return;
+    }
+    window.location.href = `/buildTeam`;
+  }
+  function redirectToSaveTeam() {
+    window.location.href = `/saveTeam`;
+  }
+</script>
+

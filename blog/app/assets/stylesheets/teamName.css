@@ -1,0 +1,156 @@
+.save-team {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    align-items: center; 
+  }
+  
+  .save-team .div {
+    background-color: #ffffff;
+    width: 1728px;
+    height: 1117px;
+    position: relative;
+  }
+  
+  .save-team .header-pokebal {
+    position: absolute;
+    width: 1728px;
+    height: 316px;
+    top: 0;
+    left: 0;
+  }
+  
+  .save-team .overlap-group {
+    position: relative;
+    height: 316px;
+  }
+  
+  .save-team .rectangle {
+    position: absolute;
+    width: 1728px;
+    height: 127px;
+    top: 0;
+    left: 0;
+    background-color: #ff0000;
+  }
+  
+  .save-team .rectangle-2 {
+    position: absolute;
+    width: 1728px;
+    height: 96px;
+    top: 103px;
+    left: 0;
+    background-color: #3f3c3c;
+  }
+  
+  .save-team .ellipse {
+    position: absolute;
+    width: 298px;
+    height: 296px;
+    top: 20px;
+    left: 715px;
+    background-color: #ffffff;
+    border-radius: 149px/148px;
+    border: 54px solid;
+    border-color: #403d3d;
+  }
+  
+  .save-team .overlap {
+    position: absolute;
+    width: 542px;
+    height: 50px;
+    top: 500px;
+    left: 640px;
+    background-color: #e7e4e4;
+    border-radius: 21px;
+    border: 0;
+    font-family: "Inter-Regular", Helvetica;
+    font-weight: 400;
+    color: #403d3d;
+    font-size: 24px;
+    letter-spacing: 0;
+    line-height: normal;
+    padding: 0;
+  }
+  
+  .save-team .rectangle-3 {
+    position: absolute;
+    width: 542px;
+    height: 168px;
+    top: 744px;
+    left: 650px;
+    background-color: #e7e4e4;
+    border-radius: 21px;
+  }
+  
+  .save-team .guardar-button {
+    position: absolute;
+    width: 137px;
+    height: 67px;
+    top: 562px;
+    left: 795px;
+    transition: all 0.2s ease;
+  }
+  
+  .save-team .overlap-2 {
+    position: relative;
+    height: 67px;
+    border-radius: 17px;
+  }
+  
+  .save-team .guardar-categoria {
+    position: absolute;
+    width: 137px;
+    height: 67px;
+    top: 15px;
+    left: 50px;
+    background-color: #23d620;
+    border-radius: 17px;
+    transition: all 0.2s ease;
+  }
+
+  .save-team .guardar-categoria:hover{
+    background-color: #1ea61d;
+      transform: scale(1.08);
+  }
+  
+  .save-team .text-wrapper {
+    position: absolute;
+    top: 30px;
+    left: 60px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 29px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .save-team .p {
+    position: absolute;
+    width: 676px;
+    top: 415px;
+    left: 635px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    color: #403d3d;
+    font-size: 36px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .save-team .text-wrapper-2 {
+    position: absolute;
+    width: 676px;
+    top: 679px;
+    left: 650px;
+    font-family: "Inter-Bold", Helvetica;
+    font-weight: 700;
+    color: #403d3d;
+    font-size: 36px;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  

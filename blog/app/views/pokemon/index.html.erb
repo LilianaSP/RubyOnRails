@@ -1,0 +1,18 @@
+<%= stylesheet_link_tag 'styles' %>
+
+<div class="main-page screen">
+    <div class="formato-de-pokebola">
+        <div class="overlap-group">
+            <div class="rectangle-2 rectangle"></div>
+            <div class="rectangle-3 rectangle"></div>
+            <div class="ellipse-16"></div>
+        </div>
+    </div>
+    <button class="boton-arma-tu-equipo" id="redirigir-button">Arma tu equipo</button>
+</div>
+
+<script>
+  document.getElementById("redirigir-button").addEventListener("click", function() {
+    window.location.href = "<%= category_path %>";
+  });
+</script>

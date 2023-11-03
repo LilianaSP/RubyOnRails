@@ -1,0 +1,7 @@
+<% if @equipo.save %>
+  // Éxito al guardar el equipo
+  toastr.success('Felicidades, se ha guardado tu equipo');
+<% else %>
+  // Fallo al guardar el equipo
+  toastr.error('Hubo un problema al guardar el equipo');
+<% end %>

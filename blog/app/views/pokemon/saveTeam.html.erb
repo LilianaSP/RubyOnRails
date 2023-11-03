@@ -1,0 +1,102 @@
+<%= stylesheet_link_tag 'teamName.css' %>
+<!DOCTYPE html>
+<html>
+  <head>
+  <%= csrf_meta_tags %>
+    <style>
+    .dropdown {
+      max-height: 170px;
+      overflow-y: auto;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: white;
+    }
+
+    .dropdown::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .dropdown::-webkit-scrollbar-thumb {
+      background: #888; 
+      border-radius: 10px;
+    }
+
+    .dropdown::-webkit-scrollbar-thumb:hover {
+      background: #555; 
+    }
+
+    .selected {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .pokemon-name {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+    text-transform: capitalize;
+    }
+
+    </style>
+  </head>
+  <html>
+    <body>
+      <div class="save-team">
+        <div class="div">
+          <div class="header-pokebal">
+            <div class="overlap-group">
+              <div class="rectangle"></div>
+              <div class="rectangle-2"></div>
+              <div class="ellipse"></div>
+            </div>
+          </div>
+          <input class="overlap" id="nombre-equipo" value="<%= @current_team_name %>"/>
+          <div class="rectangle-3">
+            <div class="dropdown" id="team-pokemon-box">
+              <% @team_pokemons.each do |pokemon| %>
+                <div class="pokemon-name"><%= "#{pokemon[:name]} @ #{pokemon[:held_item]}" %></div>
+              <% end %>
+            </div>
+          </div>
+          <div class="guardar-button">
+            <div class="overlap-2">
+              <div class="guardar-categoria" id="guardar-categoria" onClick="saveTeam()"></div>
+              <div class="text-wrapper">Guardar</div>
+            </div>
+          </div>
+          <p class="p">Ingresa el nombre de tu equipo</p>
+          <div class="text-wrapper-2">Tu equipo</div>
+        </div>
+      </div>
+    </body>
+  </html>
+
+<script>
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+  function saveTeam() {
+    var teamName = document.getElementById('nombre-equipo').value;
+    if (!teamName || teamName === "") {
+      alert("¡Debes nombrar al equipo!");
+      return;
+    } else {
+      fetch('/rename_team', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': csrfToken
+        },
+        body: JSON.stringify({
+          name: teamName
+        })
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to update team name');
+        }
+        alert("Equipo nombrado con éxito");
+        window.location.href = '/category';
+      })
+      .catch(error => console.error('Error:', error));
+    }
+  }
+</script>

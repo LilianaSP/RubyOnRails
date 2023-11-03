@@ -1,0 +1,206 @@
+.build-team {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.build-team .div {
+  background-color: #ffffff;
+  overflow: hidden;
+  width: 1728px;
+  height: 1117px;
+  position: relative;
+}
+
+.build-team .overlap-group {
+  position: absolute;
+  width: 1728px;
+  height: 316px;
+  top: 0;
+  left: 0;
+}
+
+.build-team .rectangle {
+  position: absolute;
+  width: 1728px;
+  height: 127px;
+  top: 0;
+  left: 0;
+  background-color: #ff0000;
+}
+
+.build-team .rectangle-2 {
+  position: absolute;
+  width: 1728px;
+  height: 96px;
+  top: 103px;
+  left: 0;
+  background-color: #3f3c3c;
+}
+
+.build-team .ellipse {
+  position: absolute;
+  width: 298px;
+  height: 296px;
+  top: 20px;
+  left: 715px;
+  background-color: #ffffff;
+  border-radius: 149px/148px;
+  border: 54px solid;
+  border-color: #403d3d;
+}
+
+.build-team .rectangle-3 {
+  position: absolute;
+  width: 316px;
+  height: 419px;
+  top: 590px;
+  left: 114px;
+  background-color: #e7e4e4;
+  border-radius: 25px;
+}
+
+.build-team .rectangle-4 {
+  position: absolute;
+  width: 316px;
+  height: 419px;
+  top: 590px;
+  left: 512px;
+  background-color: #e7e4e4;
+  border-radius: 25px;
+}
+
+.build-team .rectangle-5 {
+  position: absolute;
+  width: 316px;
+  height: 419px;
+  top: 590px;
+  left: 910px;
+  background-color: #e7e4e4;
+  border-radius: 25px;
+}
+
+.build-team .rectangle-6 {
+  position: absolute;
+  width: 316px;
+  height: 419px;
+  top: 590px;
+  left: 1308px;
+  background-color: #e7e4e4;
+  border-radius: 25px;
+}
+
+.build-team .overlap {
+  position: absolute;
+  width: 1885px;
+  height: 55px;
+  top: 526px;
+  left: 174px;
+}
+
+.build-team .text-wrapper {
+  position: absolute;
+  width: 676px;
+  top: 5px;
+  left: 0;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #403d3d;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.build-team .text-wrapper-2 {
+  position: absolute;
+  width: 676px;
+  top: 0;
+  left: 376px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #403d3d;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.build-team .text-wrapper-3 {
+  position: absolute;
+  width: 676px;
+  top: 0;
+  left: 837px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #403d3d;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.build-team .text-wrapper-4 {
+  position: absolute;
+  width: 676px;
+  top: 0;
+  left: 1209px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #403d3d;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.build-team .contador-de-pokemons {
+  position: absolute;
+  width: 343px;
+  height: 92px;
+  top: 392px;
+  left: 1281px;
+  background-color: #2263fb;
+  border-radius: 25px;
+  transition: all 0.2s ease;
+}
+
+.build-team .arma-tu-equipo {
+  position: absolute;
+  top: 17px;
+  left: 12px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 55px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.build-team .guardar-pokemon {
+  position: absolute;
+  width: 511px;
+  height: 92px;
+  top: 392px;
+  left: 114px;
+  background-color: #23d620;
+  border-radius: 25px;
+  transition: all 0.2s ease;
+}
+
+.build-team .guardar-pokemon:hover{
+  background-color: #1ea61d;
+    transform: scale(1.05);
+}
+
+.build-team .guardar-pokemon-2 {
+  position: absolute;
+  top: 17px;
+  left: 17px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 55px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+  

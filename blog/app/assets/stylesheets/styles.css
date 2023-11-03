@@ -1,0 +1,285 @@
+
+.main-page {
+    align-items: center;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 62px;
+    height: 1117px;
+    width: 1728px;
+}
+
+.hidden,
+.hidden * {
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.formato-de-pokebola {
+    align-items: flex-start;
+    display: flex;
+    min-width: 1728px;
+}
+
+.overlap-group {
+    height: 483px;
+    position: relative;
+    width: 1728px;
+}
+
+.rectangle-2 {
+    background-color: #ff0000;
+    height: 275px;
+    top: 0;
+    position: absolute; /* Agregado para posicionar correctamente */
+    width: 100%; /* Agregado para que se ajuste al ancho */
+}
+
+.rectangle-3 {
+    background-color: #3f3c3c;
+    height: 96px;
+    top: 257px;
+    position: absolute; /* Agregado para posicionar correctamente */
+    width: 100%; /* Agregado para que se ajuste al ancho */
+}
+
+.ellipse-16 {
+    background-color: white;
+    border: 54px solid;
+    border-color: #403d3d;
+    border-radius: 188px/178px;
+    height: 356px;
+    left: 676px;
+    position: absolute;
+    top: 127px;
+    width: 376px; /* Agregado 'px' para que sea válido */
+}
+
+.boton-arma-tu-equipo {
+    align-items: center;
+    background-color: #2263fb;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    font-size: 64px;
+    font-weight: bold;
+    height: 110px;
+    justify-content: center;
+    margin: 200px auto; /* Añadir margen superior e inferior para centrar verticalmente */
+    min-width: 443px;
+    padding: 20px 15px;
+    text-align: center;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    user-select: none;
+    margin-right:  555px; /* Añadir margen a la derecha para mover el botón */
+
+}
+
+.boton-arma-tu-equipo:hover {
+    transform: scale(1.1);
+    background-color: #1551d0; /* Cambia el color de fondo al pasar el mouse */
+}
+
+
+.title {
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 55px;
+    font-weight: 700;
+    letter-spacing: 0;
+    line-height: normal;
+    min-height: 67px;
+}
+
+/* Estilo de la vista de categoría*/
+.category {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.category .div {
+  background-color: #ffffff;
+  width: 1728px;
+  height: 1117px;
+  position: relative;
+}
+
+.category .div-2 {
+  position: absolute;
+  width: 1728px;
+  height: 316px;
+  top: 0;
+  left: 0;
+}
+
+.category .rectangle {
+  position: absolute;
+  width: 1728px;
+  height: 127px;
+  top: 0;
+  left: 0;
+  background-color: #ff0000;
+}
+
+.category .rectangle-2 {
+  position: absolute;
+  width: 1728px;
+  height: 96px;
+  top: 103px;
+  left: 0;
+  background-color: #3f3c3c;
+}
+
+.category .ellipse {
+  position: absolute;
+  width: 298px;
+  height: 296px;
+  top: 20px;
+  left: 715px;
+  background-color: #ffffff;
+  border-radius: 149px/148px;
+  border: 54px solid;
+  border-color: #403d3d;
+}
+
+.category .text-wrapper {
+  position: absolute;
+  width: 676px;
+  top: 256px;
+  left: 1187px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #403d3d;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.category .elegir-categora {
+  position: absolute;
+  width: 501px;
+  height: 76px;
+  top: 376px;
+  left: 116px;
+  background-color: #ffa43a;
+  border-radius: 25px;
+  transition: all 0.2s ease;
+}
+
+.category .elegircategor-a {
+  position: absolute;
+  left: 17px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 29px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.category .rectangle-3 {
+  position: absolute;
+  width: 599px;
+  height: 479px;
+  top: 592px;
+  left: 116px;
+  background-color: #e7e4e4;
+  border-radius: 21px;
+}
+
+.category .rectangle-4 {
+  position: absolute;
+  width: 599px;
+  height: 479px;
+  top: 592px;
+  left: 935px;
+  background-color: #e7e4e4;
+  border-radius: 21px;
+}
+
+.category .rectangle-5 {
+  position: absolute;
+  width: 351px;
+  height: 179px;
+  top: 329px;
+  left: 1183px;
+  background-color: #e7e4e4;
+  border-radius: 21px;
+}
+
+.category .guardar-categoria {
+  position: absolute;
+  width: 137px;
+  height: 67px;
+  top: 441px;
+  left: 1567px;
+  background-color: #23d620;
+  border-radius: 17px;
+  transition: all 0.2s ease;
+}
+
+.category .guardar-categoria:hover{
+  background-color: #1ea61d;
+    transform: scale(1.05);
+}
+
+.category .text-wrapper-2 {
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 29px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.category .div-wrapper {
+  position: absolute;
+  width: 137px;
+  height: 67px;
+  top: 1004px;
+  left: 1561px;
+  background-color: #23d620;
+  border-radius: 17px;
+  transition: all 0.2s ease;
+}
+
+.category .div-wrapper:hover{
+  background-color: #1ea61d;
+    transform: scale(1.05);
+}
+
+
+.category .text-wrapper-3 {
+  position: absolute;
+  width: 676px;
+  top: 510px;
+  left: 116px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #403d3d;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.category .text-wrapper-4 {
+  position: absolute;
+  width: 676px;
+  top: 510px;
+  left: 935px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #403d3d;
+  font-size: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+}

@@ -1,0 +1,183 @@
+<%= stylesheet_link_tag 'buildTeam.css' %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="buildTeam.css" />
+  <style>
+  .dropdown {
+    max-height: 420px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+  }
+
+  .ability-name, .nature-name, .item-name, .attack-name {
+    padding: 10px; 
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+  }
+
+  .ability-name:hover, .nature-name:hover, .item-name:hover, .attack-name:hover {
+  background-color: #f0f0f0; 
+  }
+
+.dropdown::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .dropdown::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px;
+  }
+
+  .dropdown::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+  .selected {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .rectangle-4 .dropdown {
+    max-height: 179px;
+    overflow-y: auto;
+  }
+  </style>
+  </head>
+  <body>
+    <div class="build-team">
+      <div class="div">
+        <div class="overlap-group">
+          <div class="rectangle"></div>
+          <div class="rectangle-2"></div>
+          <div class="ellipse"></div>
+        </div>
+        <div class="rectangle-3" id="pokemon-ability-box">
+          <div class = "dropdown" id="abilities-dropdown"></div>
+        </div>
+        <div class="rectangle-4" id="pokemon-nature-box">
+          <div class = "dropdown" id="natures-dropdown"></div>
+        </div>
+        <div class="rectangle-5" id="pokemon-item-box">
+          <div class = "dropdown" id="items-dropdown"></div>
+        </div>
+        <div class="rectangle-6" id="pokemon-attack-box">
+          <div class = "dropdown" id="attack-dropdown"></div>
+        </div>
+        <div class="overlap">
+          <div class="text-wrapper">Habilidad</div>
+          <div class="text-wrapper-2">Naturaleza</div>
+          <div class="text-wrapper-3">Item</div>
+          <div class="text-wrapper-4">Ataque</div>
+        </div>
+        <div class="contador-de-pokemons"><div class="arma-tu-equipo">Pokemón: 1</div></div>
+        <div class="guardar-pokemon" id="guardar-pokemon"><div class="guardar-pokemon-2">Guardar Pokemón</div></div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+  let selectedPokemon = sessionStorage.getItem('selectedPokemon');
+  let selectedAbility = null;
+  let selectedNature = null;
+  let selectedItem = null;
+  let selectedAttack = null;
+
+  function selectAbility(ability, element) {
+  selectedAbility = ability;
+  updateSelected('ability-name', element);
+  }
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+  }
+
+  function selectNature(nature, element) {
+    selectedNature = nature;
+    updateSelected('nature-name', element);
+  }
+
+  function selectItem(item, element) {
+    selectedItem = item;
+    updateSelected('item-name', element);
+  }
+
+  function selectAttack(attack, element) {
+    selectedAttack = attack;
+    updateSelected('attack-name', element);
+  }
+
+  function updateSelected(className, newSelectedElement) {
+    const prevSelected = document.querySelector(`.${className}.selected`);
+    if (prevSelected) {
+      prevSelected.classList.remove('selected');
+    }
+
+    if (newSelectedElement) {
+      newSelectedElement.classList.add('selected');
+    }
+  }
+
+  function populateDropdown(apiEndpoint, dropdownId, className, selectionHandler) {
+    fetch(apiEndpoint)
+      .then(response => response.json())
+      .then(data => {
+        let dropdown = document.getElementById(dropdownId);
+        dropdown.innerHTML = '';
+        data.forEach(item => {
+          let div = document.createElement('div');
+          div.innerText = capitalizeFirstLetter(item);
+          div.className = className;
+          div.onclick = function () { selectionHandler(item, div); };
+          dropdown.appendChild(div);
+        });
+      })
+      .catch(error => console.error('Error:', error));
+  }
+
+
+  if (selectedPokemon) {
+    populateDropdown(`/abilities?pokemon=${selectedPokemon}`, 'abilities-dropdown', 'ability-name', selectAbility);
+    populateDropdown(`/natures`, 'natures-dropdown', 'nature-name', selectNature);
+    populateDropdown(`/items`, 'items-dropdown', 'item-name', selectItem);
+    populateDropdown(`/attacks?pokemon=${selectedPokemon}`, 'attack-dropdown', 'attack-name', selectAttack);
+  }
+
+  document.getElementById("guardar-pokemon").addEventListener("click", function() {
+  fetch('/save_pokemon', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRF-Token': csrfToken
+    },
+    body: JSON.stringify({
+      ability: selectedAbility,
+      nature: selectedNature,
+      held_item: selectedItem,
+      attack: selectedAttack,
+      name: selectedPokemon
+    })
+  })
+  .then(response => {
+    if (response.ok) {
+      if (selectedAbility) sessionStorage.setItem('selectedAbility', selectedAbility);
+      if (selectedNature) sessionStorage.setItem('selectedNature', selectedNature);
+      if (selectedItem) sessionStorage.setItem('selectedItem', selectedItem);
+      if (selectedAttack) sessionStorage.setItem('selectedAttack', selectedAttack);
+
+      window.location.href = "<%= category_path %>";
+    } else {
+      console.error('Server responded with a non-OK status');
+    }
+  })
+  .catch(error => {
+    console.error('Network error:', error);
+  });
+});
+
+</script>
