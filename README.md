@@ -5,3 +5,9 @@ The goal of this project is to have access to a web page where the user can crea
 
 # More documentation about the PokeAPI 
 For more information, see the [PokeAPI](https://pokeapi.co/)
+
+# Requirements
+- Install Ruby version 3.<verision>
+- Install SQLite3
+- Configure the bundle install from RubyOnRails
+
